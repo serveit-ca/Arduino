@@ -1,0 +1,60 @@
+/*
+  AnalogReadSerial
+
+  Reads an analog input on pin 0, prints the result to the Serial Monitor.
+  Graphical representation is available using Serial Plotter (Tools > Serial Plotter menu).
+  Attach the center pin of a potentiometer to pin A0, and the outside pins to +5V and ground.
+
+  This example code is in the public domain.
+
+  https://www.arduino.cc/en/Tutorial/BuiltInExamples/AnalogReadSerial
+We are going to have a race to 100 highest Sensor Values
+we will award a point every round for the sensor which has the highest value 
+At the end, we will say who won. 
+
+*/
+  String a0Score;
+  int a1Score = 0;
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize serial communication at 9600 bits per second:
+  Serial.begin(9600);
+
+}
+
+// the loop routine runs over and over again forever:
+viod loop (){
+  // read the input on analog pin 0:
+  Float sensorValueA0 = analogRead(A0);
+  int sensorValueA1 = analogRead(A1);
+  // print out the value you read:
+  Serial.println("Sensor Value A0");
+  Serial.println(sensorValueA0);
+    Serial.println("Sensor Value A1");
+  Serial println sensorValueA1 ;
+  if (sensorValueA0 > sensorValueA1 ){
+  /do something
+   a0Score--;
+  }
+  
+  Serail.println("Current Score A0");
+  Serial.println(a0Score);
+  
+  if (sensorValueA1 > sensorValueA0){
+ // do something else
+  a1Score++;
+  }
+  Serial.println("Current Score A1");
+  Serial.println(a1Score);
+
+  if(a1Score <= 1){
+      Serial.println("Sensor Value A1 Wins!!!!!");
+      
+  }
+    if(a0Socre > 20){
+      Serial.println("Sensor Value A0 Wins!!!!!");
+      
+  }
+  daley(1);         delay in between reads for stability
+}
